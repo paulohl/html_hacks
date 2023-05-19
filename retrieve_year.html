@@ -1,0 +1,176 @@
+<!--   -->
+&copy; <?php 
+$copyYear = 2008; 
+$curYear = date('Y'); 
+echo $copyYear . (($copyYear != $curYear) ? '-' . $curYear : '');
+?> Me, Inc.
+
+<!--  -->
+<?php echo date("Y"); ?>
+
+&copy; 
+<?php call_user_func(function($y){$c=date('Y');echo $y.(($y!=$c)?'-'.$c:'');}, 2008); ?> 
+Me, Inc.
+
+<!--  -->
+&copy; <?php echo 2008 != date('Y') ? '2008 - ' . date('Y') : 2008; ?> Me, Inc.
+
+<!-- -->
+<?php echo '&copy; 2008', ($year = gmdate("Y")) !== '2008'? ' - '.$year : '', ' Me, Inc.'; ?>
+
+<!-- PHP Heading -->
+$now = new DateTime();
+$year = $now->format("Y");
+
+<!-- class member access on instantiation (php>=5.4) -->
+$year = (new DateTime)->format("Y");
+
+<!--  -->
+echo date('Y');
+
+$year = date('Y'); // 2008
+
+$year = gmdate('Y'); // 2008
+
+<?php echo date("d-m-Y") ?>
+print date('Y');
+
+<!--  -->
+$dateYear = date('Y');
+echo "Current Year: $dateYear";
+
+$dateYear = date('y');
+echo $dateYear;
+
+<!--  -->
+<p id='copyright'>&copy; <?php echo date("Y"); ?> Company Name All Rights Reserved</p>
+
+<p id='copyright'>&copy; <?php echo "2010-".date("Y"); ?> Company Name All Rights Reserved</p>
+
+<!-- For up to php 5.4+ -->
+<?php
+    $current= new \DateTime();
+    $future = new \DateTime('+ 1 years');
+
+    echo $current->format('Y'); 
+    //For 4 digit ('Y') for 2 digit ('y')
+?>
+<!-- Or it with one line -->
+
+$year = (new DateTime)->format("Y");
+
+<!-- To increase or decrease the year another method; add modify line -->
+<?PHP 
+  $now   = new DateTime;
+  $now->modify('-1 years'); //or +1 or +5 years 
+  echo $now->format('Y');
+  //and here again For 4 digit ('Y') for 2 digit ('y')
+?>
+
+<~-- PHP Date Function -->
+//Getting the current year using
+//PHP's date function.
+
+$year = date("Y");
+echo $year;
+
+// The example above will print out the full 4-digit representation of the current year.
+// To only retrieve the 2-digit format, use the lowercase “y” format character:
+
+$year = date("y");
+echo $year;
+1
+2
+$year = date("y");
+echo $year;
+  
+// The snippet above will print out 20 instead of 2020, or 19 instead of 2019, etc.
+
+<!-- Get full Year used -->
+  <?php
+    echo $curr_year = date('Y'); // it will display full year ex. 2017
+   ?>
+
+// Or get only two digit of year used like this:
+
+ <?php 
+    echo $curr_year = date('y'); // it will display short 2 digit year ex. 17
+?>
+  
+<!-- To show the copyright, That keeps on updating automatically -->
+<p class="text-muted credit">Copyright &copy;
+    <?php
+        $copyYear = 2017; // Set your website start date
+        $curYear = date('Y'); // Keeps the second year updated
+        echo $copyYear . (($copyYear != $curYear) ? '-' . $curYear : '');
+    ?> 
+</p>    
+
+// It will output the results as
+// copyright @ 2017   //if $copyYear is 2017 
+// copyright @ 2017-201x    //if $copyYear is not equal to Current Year.
+  
+<!-- Shortcode -->
+  <?= date("Y"); ?>
+  
+<!-- To use in the footer sections to get dynamic copyright year -->
+  <?php date_default_timezone_set("Asia/Kolkata");?><?=date("Y");?>
+  
+<!-- In Laravel -->
+$date = Carbon::now()->format('Y');
+return $date;
+
+<!--  In PHP  -->
+echo date("Y");
+  
+<!--   -->
+  $year = date("Y", strtotime($yourDateVar));
+  
+<!--  -->
+  
+//  in my case the copyright notice in the footer of a wordpress web site needed updating;
+// thought simple, but involved a step or more thann anticipated.
+// Open footer.php in your theme's folder.
+// Locate copyright text, expected this to be all hard coded but found:
+
+<div id="copyright">
+    <?php the_field('copyright_disclaimer', 'options'); ?>
+</div>
+
+// Now we know the year is written somewhere in WordPress admin so locate that to delete the year written text. 
+// In WP-Admin, go to Options on the left main admin menu:
+// enter image description here Then on next page go to the tab Disclaimers:
+// enter image description here and near the top you will find Copyright year:
+// enter image description here DELETE the © symbol + year + the empty space following the year, then save your page with Update button at top-right of page.
+// With text version of year now delete, we can go and add our year that updates automatically with PHP. Go back to chunk of code in STEP 2 found in footer.php and update that to this:
+
+<div id="copyright">
+    &copy;<?php echo date("Y"); ?> <?php the_field('copyright_disclaimer', 'options'); ?>
+</div>
+  
+// Done! Just need to test to ensure changes have taken effect as expected.
+// this might not be the same case for many, however we've come across this pattern among quite a number of our client sites 
+// and thought it would be best to document here.
+  
+  <!-- create a helper function and call it  -->
+
+getCurrentYear();
+
+function getCurrentYear(){
+    return now()->year;
+}
+  
+  <!-- For more pricise in second param in date function strtotime return the timestamp passed by param -->
+// This work when you get time as string
+echo date('Y', strtotime("now"));
+
+// Get next years
+echo date('Y', strtotime("+1 years"));
+
+// 
+echo strftime("%Y", strtotime("now"));
+
+// With datetime class
+echo (new DateTime)->format('Y');
+  
+  
